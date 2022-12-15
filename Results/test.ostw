@@ -1,0 +1,15 @@
+
+import "result 0.ostw";
+
+rule: "test" {
+	Any testvar = 4;
+
+	_CreateBeamEffect(
+		visibleTo: AllPlayers(Team.All),
+		beamType: BeamType.BadBeam,
+		startPosition_reev_for: p => Vector(0,0,0),
+		endPosition: Vector(1,1,1),
+		color: Color.White
+	);
+
+}

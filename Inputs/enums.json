@@ -1,0 +1,150 @@
+{
+    "RateChaseReevaluation": [
+        "Destination And Rate",
+        "None"
+    ],
+    "TimeChaseReevaluation": [
+        "Destination And Duration",
+        "None"
+    ],
+    "EffectRev": [
+        {
+            "name": "Visible To Position Radius and Color",
+            "alias": "VisibleToPositionRadiusAndColor"
+        },
+        {
+            "name": "Visible To Position and Radius",
+            "alias": "VisibleToPositionAndRadius"
+        },
+        "Position Radius And Color",
+        "Position And Radius",
+        "Visible To And Color",
+        "Visible To",
+        "Color",
+        "None" 
+    ],
+    "HudTextRev": [
+        "Visible To And String",
+        "String",
+        "String And Color",
+        {
+            "name": "Visible To Sort Order String and Color",
+            "alias": "VisibleToSortOrderStringAndColor"
+        },
+        {
+            "name": "Visible To Sort Order and String",
+            "alias": "VisibleToSortOrderAndString"
+        },
+        {
+            "name": "Visible To String and Color",
+            "alias": "VisibleToStringAndColor"
+        },
+        "Sort Order And String",
+        "Visible To And Sort Order",
+        "Visible To And Color",
+        "Visible To",
+        "Sort Order",
+        "Sort Order And Color",
+        "Color",
+        "None"
+    ],
+    "IconRev": [
+        {
+            "name": "Visible To Position and Color",
+            "alias": "VisibleToPositionAndColor"
+        },
+        "Visible To And Position",
+        "Position",
+        "Position And Color",
+        "Visible To",
+        "Visible To And Color",
+        "None"
+    ],
+    "AccelerateRev": [
+        {
+            "name": "Direction Rate and Max Speed",
+            "alias": "DirectionRateAndMaxSpeed"
+        },
+        "None"
+    ],
+    "DamageModificationRev": [
+        {
+            "name": "Receivers Damagers and Damage Percent",
+            "alias": "ReceiversDamagersAndDamagePercent"
+        },
+        "Receivers And Damagers",
+        "None"
+    ],
+    "HealingModificationRev": [
+        {
+            "name": "Receivers Healers and Healing Percent",
+            "alias": "ReceiversDamagersAndDamagePercent"
+        },
+        "Receivers And Healers",
+        "None"
+    ],
+    "FacingRev": [
+        "Direction And Turn Rate",
+        "None"
+    ],
+    "InworldTextRev": [
+        {
+            "name": "Visible To Position String and Color",
+            "alias": "VisibleToPositionStringAndColor"
+        },
+        {
+            "name": "Visible To String and Color",
+            "alias": "VisibleToStringAndColor"
+        },
+        {
+            "name": "Visible To Position and Color",
+            "alias": "VisibleToPositionAndColor"
+        },
+        {
+            "name": "Visible To Position and String",
+            "alias": "VisibleToPositionAndString"
+        },
+        "Visible To And String",
+        "Visible To And Color",
+        "String",
+        "Visible To And Position",
+        "Visible To",
+        "None"
+    ],
+    "ThrottleRev": [
+        "Direction And Magnitude",
+        "None"
+    ],
+    "ProgressBarHudEvaluation": [
+        "Visible To Values And Color",
+        "Visible To And Values",
+        "Visible To And Color",
+        "Visible To",
+        "Values And Color",
+        "Values",
+        "Color",
+        "None"
+    ],
+    "ProgressBarWorldEvaluation": [
+        "Visible To Position Values And Color",
+        "Visible To Position And Values",
+        "Visible To Position And Colors",
+        "Visible To Values And Color",
+        "Visible To And Position",
+        "Visible To And Values",
+        "Visible To And Color",
+        "Visible To",
+        "Position Values And Color",
+        "Position And Color",
+        "Position And Values",
+        "Position",
+        "Values And Color",
+        "Values",
+        "Color",
+        "None"
+    ],
+    "Assist": [
+        "Assisters And Targets",
+        "None"
+    ]
+}

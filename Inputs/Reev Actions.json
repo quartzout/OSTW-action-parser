@@ -1,0 +1,724 @@
+[
+    {
+        "name": "Chase Global Variable At Rate",
+        "documentation": "Gradually modifies the value of a global variable at a specific rate. (A global variable is a variable that belongs to the game itself.)",
+        "parameters": {
+            "Variable": {
+                "documentation": "The variable the action will manipulate. Can use most Variable based Value Syntax.",
+                "var-ref-global": true
+            },
+            "Destination": {
+                "documentation": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, through the variable\u0432\u0402\u2122s existing value must be of the same type before the chase begins. Can use most Number or Vector based Value Syntax to specify.",
+                "type": "any",
+                "defaultValue": 0.0
+            },
+            "Rate": {
+                "documentation": "The amount of change that will happen to the variable\u0432\u0402\u2122s value each second. Can use most Number based Value Syntax to specify.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs. You can specify a Destination and Rate or nothing.",
+                "type": "RateChaseReevaluation",
+                "defaultValue": "Destination And Rate"
+            }
+        },
+        "hidden": true
+    },
+    {
+        "name": "Chase Global Variable Over Time",
+        "documentation": "Gradually modifies the value of a global variable over time. (A global variable is a variable that belongs to the game itself.)",
+        "parameters": {
+            "Variable": {
+                "documentation": "The variable the action will manipulate. Can use most Variable based Value Syntax.",
+                "var-ref-global": true
+            },
+            "Destination": {
+                "documentation": "The value that the global variable will eventually reach. The type of this value may be either a number or a vector, through the variable\u0432\u0402\u2122s existing value must be of the same type before the chase begins. Can use most Number or Vector based Value Syntax to specify.",
+                "type": "any",
+                "defaultValue": 0.0
+            },
+            "Duration": {
+                "documentation": "The amount of time, in seconds, over which the variable\u0432\u0402\u2122s value will approach the destination. Can use most Number based Value Syntax to specify.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs. You can specify a Destination and Duration or nothing.",
+                "type": "TimeChaseReevaluation",
+                "defaultValue": "Destination And Duration"
+            }
+        },
+        "hidden": true
+    },
+    {
+        "name": "Chase Player Variable At Rate",
+        "documentation": "Gradually modifies the value of a player variable at a specific rate. (A player variable is a variable that belongs to a specific player.)",
+        "parameters": {
+            "Player": {
+                "documentation": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Variable": {
+                "documentation": "The variable the action will manipulate. Can use most Variable based Value Syntax.",
+                "var-ref-global": false
+            },
+            "Destination": {
+                "documentation": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, through the variable\u0432\u0402\u2122s existing value must be of the same type before the chase begins. Can use most Number or Vector based Value Syntax to specify.",
+                "type": "any",
+                "defaultValue": 0.0
+            },
+            "Rate": {
+                "documentation": "The amount of change that will happen to the variable\u0432\u0402\u2122s value each second. Can use most Number based Value Syntax to specify.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs. You can specify a Destination and Rate or nothing.",
+                "type": "RateChaseReevaluation",
+                "defaultValue": "Destination And Rate"
+            }
+        },
+        "hidden": true
+    },
+    {
+        "name": "Chase Player Variable Over Time",
+        "documentation": "Gradually modifies the value of a player variable over time. (A player variable is a variable that belongs to a specific player.)",
+        "parameters": {
+            "Player": {
+                "documentation": "The player whose variable will gradually change. If multiple players are provided, each of their variables will change independently.",
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Variable": {
+                "documentation": "The variable the action will manipulate. Can use most Variable based Value Syntax.",
+                "var-ref-global": false
+            },
+            "Destination": {
+                "documentation": "The value that the player variable will eventually reach. The type of this value may be either a number or a vector, through the variable\u0432\u0402\u2122s existing value must be of the same type before the chase begins. Can use most Number or Vector based Value Syntax to specify.",
+                "type": "any",
+                "defaultValue": 0.0
+            },
+            "Duration": {
+                "documentation": "The amount of time, in seconds, over which the variable\u0432\u0402\u2122s value will approach the destination. Can use most Number based Value Syntax to specify.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated. This action will keep asking for and using new values from reevaluated inputs. You can specify a Destination and Duration or nothing.",
+                "type": "TimeChaseReevaluation",
+                "defaultValue": "Destination And Duration"
+            }
+        },
+        "hidden": true
+    },
+    {
+        "name": "Create Beam Effect",
+        "documentation": "Creates an in-world beam effect entity. This effect entity will persist until destroyed, to obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "parameters": {
+            "Visible To": {
+                "documentation": "One or more players who will be able to see the effect. Can use most Value Syntax to select one or multiple players.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Beam Type": {
+                "documentation": "The type of the effect to be created.\n\nGood Beam\nBad Beam\nGrapple Beam",
+                "type": "BeamType",
+                "defaultValue": "Good Beam"
+            },
+            "Start Position": {
+                "documentation": "The effect\u0432\u0402\u2122s start position. If this value is a player, then the effect will move along with the player, otherwise, the value is interpreted as a position in the world. Can use most Player or Vector based Value Syntax.",
+                "type": "player | vector",
+                "defaultValue": "Event Player",
+                "reev": "Position"
+            },
+            "End Position": {
+                "documentation": "The effect\u0432\u0402\u2122s end position. If this value is a player, then the effect will move along with the player, otherwise, the value is interpreted as a position in the world. Can use most Player or Vector based Value Syntax.",
+                "type": "player | vector",
+                "defaultValue": "Event Player",
+                "reev": "Position"
+            },
+            "Color": {
+                "documentation": "The color of the beam effect to be created. IF a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
+                "type": "color",
+                "defaultValue": "Color"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated, the effect will keep asking for and using new values from reevaluated inputs.\n\nVisible to, position, and radius\nPosition and radius\nVisible to\nNone",
+                "type": "EffectRev",
+                "defaultValue": "Visible To Position and Radius"
+            }
+        },
+        "return-value": "Last Created Entity"
+    },
+    {
+        "name": "Create Effect",
+        "documentation": "Creates an in-world effect entity. This effect entity will persist until destroyed, to obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "parameters": {
+            "Visible To": {
+                "documentation": "One or more players who will be able to see the effect. Can use most Value Syntax to select one or multiple players.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Type": {
+                "documentation": "The type of the effect to be created.\n\nSphere\nLight Shaft\nOrb\nRing\nCloud\nSparkles\nGood Aura\nBad Aura\nEnergy Sound\nPick-Up Sound\nGood Aura Sound\nBad Aura Sound\nSparkles Sound\nSmoke Sound\nDecal Sound\nBeacon Sound",
+                "type": "Effect",
+                "defaultValue": "Sphere"
+            },
+            "Color": {
+                "documentation": "The color of the effect to be created. IF a particular team is chosen, the effect will either be red or blue, depending on whether the team is hostile to the viewer. Does not apply to sound effects.",
+                "type": "color",
+                "defaultValue": "Color"
+            },
+            "Position": {
+                "documentation": "The effect\u0432\u0402\u2122s position. If this value is a player, then the effect will move along with the player, otherwise, the value is interpreted as a position in the world. Can use most Player or Vector based Value Syntax.",
+                "type": "player | vector",
+                "defaultValue": "Event Player"
+            },
+            "Radius": {
+                "documentation": "The effect\u0432\u0402\u2122s radius in meters. Sound effects have their volume affected instead.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated, the effect will keep asking for and using new values from reevaluated inputs.\n\nVisible to, position, and scale\nPosition and scale\nVisible to\nNone",
+                "type": "EffectRev",
+                "defaultValue": "Visible To Position and Radius"
+            }
+        },
+        "return-value": "Last Created Entity"
+    },
+    {
+        "name": "Create HUD Text",
+        "alias": "CreateHudText",
+        "documentation": "Creates HUD text visible to specific players at specific location on the screen. This text will persist until destroyed. To obtain a reference to this text, use the last text ID value. This action will fail if too many text elements have been created.",
+        "parameters": {
+            "Visible To": {
+                "documentation": "One or more players who will see the HUD text. Can use most Value Syntax to select one or multiple players.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Header": {
+                "documentation": "The header text to be displayed (can be blank). Can use most String based Value Syntax to populate.",
+                "type": "any",
+                "defaultValue": null,
+                "reev": "String"
+            },
+            "Subheader": {
+                "documentation": "The subheader text to be displayed (can be blank). Can use most String based Value Syntax to populate.",
+                "type": "any",
+                "defaultValue": null,
+                "reev": "String"
+            },
+            "Text": {
+                "documentation": "The body text to be displayed (can be blank). Can use most String based Value Syntax to populate.",
+                "type": "any",
+                "defaultValue": null,
+                "reev": "String"
+            },
+            "Location": {
+                "documentation": "The location on the screen where text will appear. You can choose left, top, or right.",
+                "type": "Location",
+                "defaultValue": "Left"
+            },
+            "Sort Order": {
+                "documentation": "The Sort Order of the text relative to other text in the same location. Text with a higher sort order will come after text with a lower sort order. Can use most Number based Value Syntax.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Header Color": {
+                "documentation": "The color of the Header text to be created. If a particular team is chosen, the effect will either be red or blue.",
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Subheader Color": {
+                "documentation": "The color of the Subheader text to be created. If a particular team is chosen, the effect will either be red or blue.",
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Text Color": {
+                "documentation": "The color of the body text to be created. If a particular team is chosen, the effect will either be red or blue.",
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated, the text will keep asking for and using new values from reevaluated inputs.\n\nVisible to and String\nString\nNone",
+                "type": "HudTextRev",
+                "defaultValue": "Visible To And String"
+            },
+            "Spectators": {
+                "type": "Spectators",
+                "defaultValue": "Default Visibility"
+            }
+        },
+        "return-value": "Last Text ID"
+    },
+    {
+        "name": "Create Icon",
+        "documentation": "Creates an in-world entity. This icon entity will persist until destroyed. To obtain a reference to this entity, use the last created entity value. This action will fail if too many entities have been created.",
+        "parameters": {
+            "Visible To": {
+                "documentation": "One or more players who will be able to see the icon. Can use most Value Syntax to select one or multiple players.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Position": {
+                "documentation": "The icon\u0432\u0402\u2122s position. If this value is a player, then the icon will appear above the player\u0432\u0402\u2122s head, otherwise, the value is interpreted as a position in the world. Can use most Player or Vector based Value Syntax.",
+                "type": "player | vector",
+                "defaultValue": "Event Player"
+            },
+            "Icon": {
+                "documentation": "The icon to be created.\n\nArrow: Down\nArrow: Left\nArrow: Right\nArrow: Up\nAsterisk\nBolt\nCheckmark\nCircle\nClub\nDiamond\nDizzy\nExclamation Mark\nEye\nFire\nFlag\nHalo\nHappy\nHeart\nMoon\nNo\nPlus\nPoison\nPoison 2\nQuestion Mark\nRadioactive\nRecycle\nRing Thick\nRing Thin\nSad\nSkull\nSpade\nSpiral\nStop\nTrashcan\nWarning\nX",
+                "type": "Icon",
+                "defaultValue": "Arrow: Down"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continously reevaluated, the icon will keep asking for and using new values from reevaluated inputs.\n\nVisible to and position\nPosition\nVisible to\nNone",
+                "type": "IconRev",
+                "defaultValue": "Visible To And Position"
+            },
+            "Icon Color": {
+                "documentation": "The color of the icon to be created. IF a particular team is chosen, the icon will either be red or blue, depending on whether the team is hostile to the viewer.",
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Show When Offscreen": {
+                "documentation": "Should this icon still appear even when it is behind you? Can use most Boolean based Value Syntax to specify.",
+                "type": "boolean",
+                "defaultValue": true
+            }
+        },
+        "return-value": "Last Created Entity"
+    },
+    {
+        "name": "Create In-World Text",
+        "documentation": "Creates in-world text visible to specific players at specific position in the world. This text will persist until destroyed. To obtain a reference to this text, use the last text ID value. This action will fail if too many text elements have been created.",
+        "parameters": {
+            "Visible To": {
+                "documentation": "One or more players who will see the HUD text. Can use most Value Syntax to select one or multiple players.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Header": {
+                "documentation": "The header text to be displayed (can be blank). Can use most String based Value Syntax to populate.",
+                "type": "any",
+                "defaultValue": "@",
+                "reev": "String"
+            },
+            "Position": {
+                "documentation": "The text\u0432\u0402\u2122s position. If this value is a player, then the text will appear above the player\u0432\u0402\u2122s head. Otherwise, the value is interpreted as a position in the world. Can use most Player or Vector based Value Syntax.",
+                "type": "player | vector",
+                "defaultValue": "Event Player"
+            },
+            "Scale": {
+                "documentation": "The text\u0432\u0402\u2122s scale. Can use most Number based Value Syntax.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Clipping": {
+                "documentation": "Specifies whether the text can be seen through walls or is instead clipped.\n\nClip Against Surfaces - The text may be partially or completely obscured by walls, floors, ceilings, players, or other solid objects.\nDo not clip - The text will always be fully visible. Even if it is behind a wall or solid object.",
+                "type": "Clipping",
+                "defaultValue": "Clip Against Surfaces"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continuously reevaluated, the text will keep asking for and using new values from reevaluated inputs.\n\nVisible to, Position, and String\nVisible to and String\nNone",
+                "type": "InworldTextRev",
+                "defaultValue": "Visible To Position and String"
+            },
+            "Text Color": {
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Spectators": {
+                "type": "Spectators",
+                "defaultValue": "Default Visibility"
+            }
+        },
+        "alias": "CreateInWorldText",
+        "return-value": "Last Text ID"
+    },
+    {
+        "name": "Set Objective Description",
+        "documentation": "Sets the text at the top center of the screen that normally describes the objective to a message visible to specific players.",
+        "parameters": {
+            "Visible To": {
+                "documentation": "One or more players who will see the message. Can use most Number based Player Syntax for this value.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Header": {
+                "documentation": "The message to be displayed. Can use most String based Value Syntax for this value.",
+                "type": "any",
+                "defaultValue": "@",
+                "reev": "String"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continously reevaluated. The message will keep asking for and using new values from reevaluated inputs. Can choose \u0432\u0402\u045aVisible to and String\u0432\u0402\u045c or \u0432\u0402\u045aString\u0432\u0402\u045c",
+                "type": "HudTextRev",
+                "defaultValue": "Visible To And String"
+            }
+        }
+    },
+    {
+        "name": "Start Accelerating",
+        "documentation": "Starts accelerating one or more players in a specified location.",
+        "parameters": {
+            "Player": {
+                "documentation": "The player or players that will begin accelerating. Can use most Player based Value Syntax.",
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Direction": {
+                "documentation": "The unit direction in which the acceleration will be applied. This value is normalized internally. Can use most Vector based Value Syntax to specify.",
+                "type": "player | vector",
+                "defaultValue": "Vector"
+            },
+            "Rate": {
+                "documentation": "The rate of acceleration in meters per second squared. This value may need to be quite high in order to overcome gravity and/or surface friction. Can use most Number based Value Syntax.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Max Speed": {
+                "documentation": "The speed at which acceleration will stop for the player or players. It may not be possible to reach this speed due to gravity and/or surface friction. Can use most Number based Value Syntax.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Relative": {
+                "documentation": "Specifies whether direction is relavtive to the world coordinates or the local coordinates of the player or players.",
+                "type": "Relative",
+                "defaultValue": "To World"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this actions inputs will be continously reevaluated. This action will keep asking for and using new values from reevaluated inputs. You can choose from \u0432\u0402\u045aDirection, Rate, and Max Speed\u0432\u0402\u045c or \u0432\u0402\u045aNone\u0432\u0402\u045c.",
+                "type": "AccelerateRev",
+                "defaultValue": "Direction Rate and Max Speed"
+            }
+        }
+    },
+    {
+        "name": "Start Damage Modification",
+        "documentation": "Starts modifying how much damage one or more receivers will receive from one or more damagers. A reference to this damage modification can be obtained from the last damage modification ID value. This action will fail if too many damage modifications have been started.",
+        "parameters": {
+            "Receivers": {
+                "documentation": "The player or players whose incoming damage will be modified. Can use most Player based Value Syntax.",
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Damagers": {
+                "documentation": "The player or players whose outgoing damage will be modified (when attacking the receivers). Can use most Player based Value Syntax.",
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Damage Percent": {
+                "documentation": "The percentage of damage that will apply to receivers when attacked by damagers. Can use most Number based Value Syntax to specify.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continously reevaluated. This action will keep asking for and using new values from reevaluated inputs. Can choose from \u0432\u0402\u045aReceivers, Damagers, and Damage Percent\u0432\u0402\u045c, \u0432\u0402\u045aReceivers and Damagers\u0432\u0402\u045c, or \u0432\u0402\u045aNone\u0432\u0402\u045c.",
+                "type": "DamageModificationRev",
+                "defaultValue": "Receivers, Damagers, and Damage Percent"
+            }
+        },
+        "return-value": "Last Damage Modification ID"
+    },
+    {
+        "name": "Start Facing",
+        "documentation": "Starts turning one or more players to face the specified direction.",
+        "parameters": {
+            "Player": {
+                "documentation": "The player or players who will start turning. Can use most Player based Value Syntax.",
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Direction": {
+                "documentation": "The unit direction in which the player or players will eventually face. Can use most Vector based Value Syntax.",
+                "type": "player | vector",
+                "defaultValue": "Vector"
+            },
+            "Turn Rate": {
+                "documentation": "The turn rate in degrees per second. Can use most Number based Value Syntax to specify.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Relative": {
+                "documentation": "Specifies whether direction is relative to the world coordinates or the local coordinates of the player or players.",
+                "type": "Relative",
+                "defaultValue": "To World"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this actions inputs will be continously reevaluated. This action will keep asking for and using new values from reevaluated inputs. You can choose from \u0432\u0402\u045aDirection and Turn Rate\u0432\u0402\u045c or \u0432\u0402\u045aNone\u0432\u0402\u045c.",
+                "type": "FacingRev",
+                "defaultValue": "Direction And Turn Rate"
+            }
+        }
+    },
+    {
+        "name": "Start Healing Modification",
+        "parameters": {
+            "Recievers": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Healers": {
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Healing Percent": {
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "type": "HealingModificationRev",
+                "defaultValue": "Receivers, Healers, and Healing Percent"
+            }
+        },
+        "return-value": "Last Healing Modification ID"
+    },
+    {
+        "name": "Start Throttle In Direction",
+        "documentation": "Sets or adds to the throttle (directional input control) of a player or players such that they begin moving in a particular direction. Any previous throttle in direction is cancelled.",
+        "parameters": {
+            "Player": {
+                "documentation": "The player or players whose throttle will be set or added to.",
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Direction": {
+                "documentation": "The unit direction in which the throttle will be set or added to. This value is normalized internally.",
+                "type": "player | vector",
+                "defaultValue": "Vector"
+            },
+            "Magnitude": {
+                "documentation": "The amount of throttle (or change to throttle). A value of 1 denotes full throttle.",
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Relative": {
+                "documentation": "Specifies whether direction is relative to world coordinates or the local coordinates of the player or players.",
+                "type": "Relative",
+                "defaultValue": "To World"
+            },
+            "Behavior": {
+                "documentation": "Specifies whether preexisting throttle is replaced or added to.",
+                "type": "ThrottleBehavior",
+                "defaultValue": "Replace Existing Throttle"
+            },
+            "Reevaluation": {
+                "documentation": "Specifies which of this action\u0432\u0402\u2122s inputs will be continously reevaluated. This action will keep asking for and using new values from reevaluated inputs.",
+                "type": "ThrottleRev",
+                "defaultValue": "Direction And Magnitude"
+            }
+        }
+    },
+    {
+        "name": "Start Forcing Player Position",
+        "parameters": {
+            "Player": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Position": {
+                "type": "vector",
+                "defaultValue": "Vector"
+            },
+            "Reevaluation": {
+                "type": "boolean",
+                "defaultValue": true
+            }
+        }
+    },
+    {
+        "name": "Start Scaling Player",
+        "parameters": {
+            "Player": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Scale": {
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "type": "boolean",
+                "defaultValue": true
+            }
+        }
+    },
+    {
+        "name": "Start Scaling Barriers",
+        "parameters": {
+            "Player": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Scale": {
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "type": "boolean",
+                "defaultValue": true
+            }
+        }
+    },
+    {
+        "name": "Start Modifying Hero Voice Lines",
+        "parameters": {
+            "Player": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Pitch Scalar": {
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Reevaluation": {
+                "type": "boolean",
+                "defaultValue": true
+            }
+        }
+    },
+    {
+        "name": "Add Health Pool To Player",
+        "parameters": {
+            "Player": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Health Type": {
+                "type": "HealthType",
+                "defaultValue": "Health"
+            },
+            "Max Health": {
+                "type": "number",
+                "defaultValue": 0.0
+            },
+            "Recoverable": {
+                "type": "boolean",
+                "defaultValue": true
+            },
+            "Reevaluation": {
+                "type": "boolean",
+                "defaultValue": true
+            }
+        },
+        "return-value": "Last Created Health Pool"
+    },
+    {
+        "name": "Start Assist",
+        "parameters": {
+            "Assisters": {
+                "type": "players",
+                "defaultValue": "Event Player"
+            },
+            "Targets": {
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Reevaluation": {
+                "type": "Assist",
+                "defaultValue": "Assisters And Targets"
+            }
+        },
+        "return-value": "Last Assist ID"
+    },
+    {
+        "name": "Create Progress Bar HUD Text",
+        "alias": "CreateProgressBarHudText",
+        "parameters": {
+            "Visible To": {
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Value": {
+                "type": "number",
+                "reev": "Values"
+            },
+            "Text": {
+                "type": "string",
+                "defaultValue": null,
+                "reev": "Values"
+            },
+            "Location": {
+                "type": "Location",
+                "defaultValue": "Top"
+            },
+            "Sort Order": {
+                "type": "number",
+                "defaultValue": 0
+            },
+            "Progress Bar Color": {
+                "type": "color",
+                "defaultValue": "Color"
+            },
+            "Text Color": {
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Reevaluation": {
+                "type": "ProgressBarHudEvaluation",
+                "defaultValue": "Visible To Values And Color"
+            },
+            "Nonteam Spectators": {
+                "type": "Spectators",
+                "defaultValue": "Default Visibility"
+            }
+        },
+        "return-value": "Last Text ID"
+    },
+    {
+        "name": "Create Progress Bar In-World Text",
+        "parameters": {
+            "Visible To": {
+                "type": "players",
+                "defaultValue": "All Players"
+            },
+            "Value": {
+                "type": "number",
+                "reev": "Values"
+            },
+            "Text": {
+                "type": "string",
+                "reev": "Values"
+            },
+            "Position": {
+                "type": "player | vector"
+            },
+            "Scale": {
+                "type": "number",
+                "defaultValue": 1
+            },
+            "Clipping": {
+                "type": "Clipping",
+                "defaultValue": "Clip Against Surfaces"
+            },
+            "Progress Bar Color": {
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Text Color": {
+                "type": "color",
+                "defaultValue": "Color",
+                "reev": "Color"
+            },
+            "Reevaluation": {
+                "type": "ProgressBarWorldEvaluation",
+                "defaultValue": "Visible To Values And Color"
+            },
+            "Nonteam Spectators": {
+                "type": "Spectators",
+                "defaultValue": "Default Visibility"
+            }
+        },
+        "return-value": "Last Text ID"
+    }
+]
